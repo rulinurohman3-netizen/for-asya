@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>VALENTINE GILA 😆💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+.card{
+  background:white;
+  padding:25px 20px;
+  border-radius:25px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+h1{color:#ff4d6d;}
+p{font-size:17px;color:#333;line-height:1.6;}
+button{
+  margin:8px;
+  padding:12px 24px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+}
+.yes{background:#ff4d6d;color:white;}
+.no{
+  background:#ccc;
+  position:absolute;
+}
+.sticker{
+  font-size:42px;
+  animation:shake 1s infinite;
+}
+@keyframes shake{
+  0%{transform:rotate(0deg);}
+  25%{transform:rotate(5deg);}
+  50%{transform:rotate(-5deg);}
+  75%{transform:rotate(5deg);}
+  100%{transform:rotate(0deg);}
+}
+.float{
+  position:absolute;
+  font-size:26px;
+  animation:float 6s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(100vh);opacity:1;}
+  to{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- Lagu -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9d8c6e4c3e.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <h1>💥 HALO TASYA CANTIK 💥</h1>
+  <div class="sticker">🐰💖🐻</div>
+  <p id="text">
+    PERHATIAN ⚠️<br>
+    Website ini dibuat dengan niat 😆
+  </p>
+  <button class="yes" onclick="next()">LANJUT 😳</button>
+</div>
+
+<button class="no" id="noBtn">GAK MAU 🙈</button>
+
+<script>
+let step=0;
+const text=document.getElementById("text");
+const noBtn=document.getElementById("noBtn");
+
+function next(){
+  if(step===0){
+    text.innerHTML="Aku bikin ini sambil mikir:<br>\"ketawa gak ya dia\" 😂";
+    step++;
+  }else if(step===1){
+    text.innerHTML="Terus kepikiran lagi:<br>\"kok niat banget sih aku\" 😆";
+    step++;
+  }else if(step===2){
+    text.innerHTML="<b>Tasya cantik…</b><br>kamu bikin hari aku seru 💗";
+    step++;
+  }else if(step===3){
+    text.innerHTML="<b>Mau gak jadi Valentine aku hari ini? 😳💖</b>";
+    step++;
+  }else{
+    text.innerHTML="YEAYYYY 🎉💖<br><br>Happy Valentine 😆<br><small>dari Ruli</small>";
+    document.querySelector(".yes").style.display="none";
+    noBtn.style.display="none";
+  }
+}
+
+noBtn.addEventListener("mouseover",()=>{
+  noBtn.style.left=Math.random()*80+"vw";
+  noBtn.style.top=Math.random()*80+"vh";
+});
+
+function chaos(){
+  const icons=["💖","🔥","🐰","🐻","🍓","🌸","💕"];
+  const f=document.createElement("div");
+  f.className="float";
+  f.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+  f.style.left=Math.random()*100+"vw";
+  f.style.animationDuration=(Math.random()*2+4)+"s";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),6000);
+}
+setInterval(chaos,300);
+</script>
+
+</body>
+</html>
